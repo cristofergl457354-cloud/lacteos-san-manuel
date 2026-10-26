@@ -1,0 +1,283 @@
+:root {
+  --cafe-oscuro: #2C1E14;
+  --crema: #F9F6F0;
+  --miel: #C58940;
+  --miel-oscuro: #A9712C;
+  --texto: #3B2B20;
+  --blanco: #FFFFFF;
+  --borde: #E6DCCD;
+}
+
+body {
+  background-color: var(--crema);
+  color: var(--texto);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+}
+
+.seccion {
+  padding: 60px 0;
+}
+
+.seccion-blanca {
+  background-color: var(--blanco);
+}
+
+.subtitulo-seccion {
+  color: #7A6A5B;
+  margin-bottom: 40px;
+}
+
+.navbar-cafe {
+  background-color: var(--cafe-oscuro);
+  padding: 14px 0;
+}
+
+.navbar-cafe .navbar-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.navbar-cafe .navbar-brand i {
+  color: var(--miel);
+}
+
+.navbar-cafe .nav-link {
+  color: #E8DED2;
+  font-weight: 500;
+}
+
+.navbar-cafe .nav-link:hover,
+.navbar-cafe .nav-link.active {
+  color: var(--miel);
+}
+
+.hero {
+  background-color: var(--cafe-oscuro);
+  color: var(--blanco);
+  padding: 90px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: #EFE4D7;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+}
+
+.btn-miel {
+  background-color: var(--miel);
+  color: var(--blanco);
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+}
+
+.btn-miel:hover {
+  background-color: var(--miel-oscuro);
+  color: var(--blanco);
+}
+
+.btn-contorno {
+  border: 2px solid var(--miel);
+  color: var(--miel);
+  font-weight: 600;
+  padding: 10px 24px;
+}
+
+.btn-contorno:hover {
+  background-color: var(--miel);
+  color: var(--blanco);
+}
+
+.beneficio {
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 30px 24px;
+  height: 100%;
+}
+
+.beneficio i {
+  font-size: 2.4rem;
+  color: var(--miel);
+  margin-bottom: 16px;
+}
+
+.card-producto {
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.card-producto img {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.card-producto .card-body {
+  padding: 20px;
+}
+
+.card-producto h3 {
+  font-size: 1.2rem;
+}
+
+.badge-precio {
+  background-color: var(--miel);
+  color: var(--blanco);
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+.banda-zonas {
+  background-color: var(--miel);
+  color: var(--blanco);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.banda-zonas i {
+  margin-right: 8px;
+}
+
+.receta {
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-left: 6px solid var(--miel);
+  border-radius: 8px;
+  padding: 26px;
+  margin-bottom: 28px;
+}
+
+.receta h2 {
+  font-size: 1.5rem;
+}
+
+.receta img {
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.receta h3 {
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.tabla-zonas thead th {
+  background-color: var(--cafe-oscuro);
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.caja-total {
+  background-color: var(--blanco);
+  border: 2px dashed var(--miel);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 24px;
+  font-size: 1.15rem;
+}
+
+.caja-info {
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.caja-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.caja-info li {
+  margin-bottom: 8px;
+}
+
+.tarjeta-item {
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  background-color: var(--cafe-oscuro);
+  color: #E8DED2;
+  padding: 50px 0 20px 0;
+}
+
+.footer h2 {
+  font-size: 1.1rem;
+  color: var(--blanco);
+  margin-bottom: 16px;
+}
+
+.footer a {
+  color: #E8DED2;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--miel);
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  margin-bottom: 8px;
+}
+
+.footer-linea {
+  border-top: 1px solid #4A3728;
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .seccion {
+    padding: 40px 0;
+  }
+}

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos | Lácteos San Manuel</title>
+  <meta name="description" content="Haz tu pedido de queso artesanal en línea: agrega varios productos y calcula el total al instante.">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-cafe">
+      <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+          <i class="fa-solid fa-cheese"></i> Lácteos San Manuel
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="productos.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="recetas.html">Recetas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="distribucion.html">Distribución</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="pedidos.html">Pedidos</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="seccion">
+      <div class="container">
+
+        <h1 class="titulo-seccion">Haz tu pedido</h1>
+        <p class="subtitulo-seccion">
+          Agrega todos los productos que quieras a tu lista. El total se calcula solo.
+        </p>
+
+        <div class="row g-4">
+
+          <div class="col-12 col-lg-8">
+            <div class="caja-info">
+
+              <form id="formPedido" novalidate>
+
+                <h2 class="h5 mb-3">
+                  <i class="fa-solid fa-basket-shopping" style="color:#C58940;"></i>
+                  1. Arma tu pedido
+                </h2>
+
+                <div class="row">
+
+                  <div class="col-12 col-md-8 mb-3">
+                    <label for="producto" class="form-label">Producto</label>
+
+                    <select class="form-select" id="producto" name="producto">
+                      <option value="">-- Elige un producto --</option>
+                      <option value="92">Queso Oaxaca (1 kg) - $92</option>
+                      <option value="46">Queso Oaxaca (1/2 kg) - $46</option>
+                      <option value="23">Queso Oaxaca (1/4 kg) - $23</option>
+                      <option value="45">Panela grande - $45</option>
+                      <option value="23">Panela mini - $23</option>
+                      <option value="45">Queso Ranchero - $45</option>
+                      <option value="45">Queso Botanero (epazote o chipotle) - $45</option>
+                      <option value="65">Queso Manchego - $65</option>
+                      <option value="70">Queso Doble Crema (pieza) - $70</option>
+                      <option value="50">Queso de Morral (pieza) - $50</option>
+                      <option value="95">Queso Provolone (pieza) - $95</option>
+                      <option value="85">Queso Asadero (pieza) - $85</option>
+                      <option value="42">Nata fresca - $42</option>
+                      <option value="40">Crema (1/2 litro) - $40</option>
+                      <option value="60">Mantequilla (pieza) - $60</option>
+                      <option value="23">Requesón - $23</option>
+                      <option value="9">Tamal de requesón - $9</option>
+                      <option value="10">Dulces de leche - $10</option>
+                    </select>
+                    <div class="invalid-feedback">Elige un producto de la lista.</div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-3">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="cantidad" name="cantidad"
+                           value="1" min="1">
+                    <div class="invalid-feedback">La cantidad debe ser 1 o más.</div>
+                  </div>
+
+                </div>
+
+                <div class="mb-4">
+                  <button type="button" id="btnAgregar" class="btn btn-contorno">
+                    <i class="fa-solid fa-plus"></i> Agregar a mi pedido
+                  </button>
+                  <span class="text-muted small ms-2">Puedes agregar varios productos distintos.</span>
+                </div>
+
+                <h2 class="h6 mb-2">Mi lista</h2>
+
+                <p id="mensajeVacio" class="text-muted mb-0">
+                  Todavía no agregaste ningún producto.
+                </p>
+
+                <div id="contenedorLista" class="d-none mb-2">
+
+                  <div class="table-responsive d-none d-md-block">
+                    <table class="table table-sm align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                          <th>Subtotal</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="cuerpoLista"></tbody>
+                    </table>
+                  </div>
+
+                  <div id="listaTarjetas" class="d-md-none"></div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="h5 mb-3">
+                  <i class="fa-solid fa-user" style="color:#C58940;"></i>
+                  2. Tus datos
+                </h2>
+
+                <div class="row">
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="nombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                           placeholder="Ej. Ana López">
+                    <div class="invalid-feedback">Escribe tu nombre.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo"
+                           placeholder="Ej. ana@correo.com">
+                    <div class="invalid-feedback">Escribe un correo válido, por ejemplo ana@correo.com.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono"
+                           placeholder="Ej. 7731002030">
+                    <div class="invalid-feedback">Escribe tu teléfono con al menos 10 números.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="zona" class="form-label">Zona de entrega</label>
+                    <select class="form-select" id="zona" name="zona">
+                      <option value="">-- Elige tu zona --</option>
+                      <option value="Tula">Tula</option>
+                      <option value="Cruz Azul">Cruz Azul</option>
+                      <option value="San Marcos">San Marcos</option>
+                      <option value="El Llano">El Llano</option>
+                      <option value="Iturbe">Iturbe</option>
+                    </select>
+                    <div class="invalid-feedback">Elige tu zona de entrega.</div>
+                  </div>
+
+                  <div class="col-12 mb-3">
+                    <label for="comentarios" class="form-label">Comentarios adicionales</label>
+                    <textarea class="form-control" id="comentarios" name="comentarios" rows="3"
+                              placeholder="Ej. Dejar en la casa de junto, timbre rojo"></textarea>
+                    <div class="form-text">Este campo es opcional.</div>
+                  </div>
+
+                </div>
+
+                <div class="caja-total">
+                  Total a pagar: <strong>$<span id="total">0.00</span> MXN</strong>
+                </div>
+
+                <button type="submit" class="btn btn-miel btn-lg">
+                  <i class="fa-solid fa-paper-plane"></i> Enviar pedido
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+
+            <div class="caja-info">
+              <h2><i class="fa-solid fa-truck-fast" style="color:#C58940;"></i> Cómo funciona</h2>
+              <ul>
+                <li>Confirmamos tu pedido por teléfono.</li>
+                <li>Pagas en efectivo al recibir.</li>
+                <li>Pedidos con 24 horas de anticipación.</li>
+              </ul>
+            </div>
+
+            <div class="caja-info">
+              <h2><i class="fa-solid fa-location-dot" style="color:#C58940;"></i> Zonas de entrega</h2>
+              <ul>
+                <li>Tula</li>
+                <li>Cruz Azul</li>
+                <li>San Marcos</li>
+                <li>El Llano</li>
+                <li>Iturbe</li>
+              </ul>
+              <a href="distribucion.html" class="btn btn-contorno btn-sm">Ver días de entrega</a>
+            </div>
+
+            <div id="cajaUltimo" class="alert alert-secondary d-none" role="status">
+              <h2 class="h6 mb-2">Tu último pedido guardado</h2>
+              <p id="resumenPedido" class="mb-0 small"></p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12">
+
+            <h2>¿No conoces nuestros productos?</h2>
+            <p class="subtitulo-seccion mb-2">
+              Aquí te decimos para qué sirve cada uno, para que elijas con calma.
+              Las fotos las iremos agregando poco a poco.
+            </p>
+            <p class="small text-muted mb-3">
+              Los quesos y la mantequilla se venden por pieza. La crema, por medio litro.
+              Precios de referencia, sujetos a cambio.
+            </p>
+
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Para qué sirve</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Queso Oaxaca (1 kg)</td>
+                    <td>Se deshebra solo. Para quesadillas, gringas, chiles rellenos y queso fundido.</td>
+                    <td>$92</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Oaxaca (1/2 kg)</td>
+                    <td>La misma madeja en media presentación, para una comida familiar.</td>
+                    <td>$46</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Oaxaca (1/4 kg)</td>
+                    <td>Presentación chica: para probar o para una quesadilla rápida.</td>
+                    <td>$23</td>
+                  </tr>
+                  <tr>
+                    <td>Panela grande</td>
+                    <td>No se derrite, se dora. Ideal a la plancha, en ensaladas y en tortitas.</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>Panela mini</td>
+                    <td>Porción individual para una tortita o una ensalada pequeña.</td>
+                    <td>$23</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Ranchero</td>
+                    <td>Sabor fuerte y salado. Perfecto con frijoles, chilaquiles y molletes.</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Botanero</td>
+                    <td>Con epazote o chipotle. Para botanear con totopos o sobre frijoles.</td>
+                    <td>$45</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Manchego</td>
+                    <td>Firme y suave. Ralla para pizza y pasta, gratina y aguanta el sándwich.</td>
+                    <td>$65</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Doble Crema (pieza)</td>
+                    <td>Suave y cremoso. Se derrite parejo: ideal para quesadillas, pastas y salsas.</td>
+                    <td>$70</td>
+                  </tr>
+                  <tr>
+                    <td>Queso de Morral (pieza)</td>
+                    <td>Fresco y salado, tipo canasta. Para rebanar en sándwich o con frijoles.</td>
+                    <td>$50</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Provolone (pieza)</td>
+                    <td>Sabor suave y ahumado. Ralla para pizza, gratina o sírvelo en tabla.</td>
+                    <td>$95</td>
+                  </tr>
+                  <tr>
+                    <td>Queso Asadero (pieza)</td>
+                    <td>Se derrite y se estira. El de las quesadillas y los chiles rellenos.</td>
+                    <td>$85</td>
+                  </tr>
+                  <tr>
+                    <td>Nata fresca</td>
+                    <td>Recién sacada. Para untar en pan, en tamales, con fresas o en el café.</td>
+                    <td>$42</td>
+                  </tr>
+                  <tr>
+                    <td>Crema (1/2 litro)</td>
+                    <td>Espesa y fresca. Para tacos, enchiladas, sopas o con fresas.</td>
+                    <td>$40</td>
+                  </tr>
+                  <tr>
+                    <td>Mantequilla (pieza)</td>
+                    <td>Hecha con la nata de la leche. Para untar en pan, hotcakes o para cocinar.</td>
+                    <td>$60</td>
+                  </tr>
+                  <tr>
+                    <td>Requesón</td>
+                    <td>Fresco y ligero. En tacos, con miel, en ensaladas o para rellenar chiles.</td>
+                    <td>$23</td>
+                  </tr>
+                  <tr>
+                    <td>Tamal de requesón</td>
+                    <td>Individual y dulce. Se calienta al vapor o en microondas en 5 minutos.</td>
+                    <td>$9</td>
+                  </tr>
+                  <tr>
+                    <td>Dulces de leche</td>
+                    <td>Tipo cajeta. Se comen solos o untados en pan.</td>
+                    <td>$10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12 col-md-4 mb-4">
+          <h2><i class="fa-solid fa-cheese"></i> Lácteos San Manuel</h2>
+          <p class="mb-0">
+            Quesos artesanales hechos en casa, con leche de la región.
+          </p>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4">
+          <h2>Páginas</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="distribucion.html">Distribución</a></li>
+            <li><a href="pedidos.html">Pedidos</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4">
+          <h2>Contacto</h2>
+          <ul>
+            <li><i class="fa-solid fa-phone"></i> 773 100 2030</li>
+            <li><i class="fa-solid fa-envelope"></i> pedidos@lacteossanmanuel.mx</li>
+            <li><i class="fa-solid fa-clock"></i> Lunes a sábado, 8:00 a 18:00</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-linea">
+        <p class="mb-0">© 2026 Lácteos San Manuel. Proyecto escolar.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
