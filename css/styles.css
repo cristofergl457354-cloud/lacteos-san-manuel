@@ -2,7 +2,7 @@
   --cafe-oscuro: #2C1E14;
   --crema: #F9F6F0;
   --miel: #C58940;
-  --miel-oscuro: #A9712C;
+  --miel-oscuro: #8A5A1F;
   --texto: #3B2B20;
   --blanco: #FFFFFF;
   --borde: #E6DCCD;
@@ -83,7 +83,7 @@ img {
 
 .btn-miel {
   background-color: var(--miel);
-  color: var(--blanco);
+  color: var(--cafe-oscuro);
   border: none;
   font-weight: 600;
   padding: 10px 24px;
