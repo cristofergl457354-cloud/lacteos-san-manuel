@@ -183,7 +183,7 @@ function correoValido(correo) {
 
 function telefonoValido(telefono) {
 
-  return telefono.length >= 10;
+  return /^[0-9]{10}$/.test(telefono);
 }
 
 function guardarPedido(pedido) {
