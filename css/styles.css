@@ -95,14 +95,14 @@ img {
 }
 
 .btn-contorno {
-  border: 2px solid var(--miel);
-  color: var(--miel);
+  border: 2px solid var(--miel-oscuro);
+  color: var(--miel-oscuro);
   font-weight: 600;
   padding: 10px 24px;
 }
 
 .btn-contorno:hover {
-  background-color: var(--miel);
+  background-color: var(--miel-oscuro);
   color: var(--blanco);
 }
 
@@ -145,7 +145,7 @@ img {
 
 .badge-precio {
   background-color: var(--miel);
-  color: var(--blanco);
+  color: var(--cafe-oscuro);
   font-size: 1rem;
   padding: 8px 14px;
   border-radius: 20px;
@@ -153,7 +153,7 @@ img {
 
 .banda-zonas {
   background-color: var(--miel);
-  color: var(--blanco);
+  color: var(--cafe-oscuro);
   padding: 40px 0;
   text-align: center;
 }
