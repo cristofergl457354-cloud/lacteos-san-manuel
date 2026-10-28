@@ -47,7 +47,6 @@ function calcularTotal() {
 }
 
 function mostrarTotal() {
-
   spanTotal.textContent = calcularTotal().toFixed(2);
 }
 
